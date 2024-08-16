@@ -12,7 +12,6 @@ import { ProductService } from './product.service';
 import { CreateProductDTO, createProductSchema } from './DTO/CreateProductDto';
 import { ZodValidationPipe } from 'src/utils/zod-validation-pipe';
 import { UpdateProductDTO, updateProductSchema } from './DTO/UpdateProductDTO';
-import { ZodEffects } from 'zod';
 
 @Controller('/products')
 export class ProductController {
