@@ -7,6 +7,7 @@ import { PurchaseModule } from './modules/Purchase/purchase.module';
 import { AuthModule } from './modules/Auth/auth.module';
 import { CacheInterceptor, CacheModule } from '@nestjs/cache-manager';
 import { APP_INTERCEPTOR } from '@nestjs/core';
+import { redisStore } from 'cache-manager-redis-yet';
 
 @Module({
   imports: [
@@ -15,8 +16,12 @@ import { APP_INTERCEPTOR } from '@nestjs/core';
     PurchaseModule,
     AuthModule,
     CacheModule.register({
-      ttl: 10,
+      store: redisStore,
+      ttl: 10 * 1000,
       isGlobal: true,
+      host: 'localhost',
+      port: 6379,
+      max: 100,
     }),
   ],
   controllers: [AppController],
