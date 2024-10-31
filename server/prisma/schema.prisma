@@ -24,7 +24,6 @@ model Profile {
   users User[]
 }
 
-
 model Purchase {
   id       Int       @id @default(autoincrement())
   date     DateTime
